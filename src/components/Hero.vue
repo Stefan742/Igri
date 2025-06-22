@@ -6,11 +6,11 @@
 
       <h1
           class="outline-text"
-          :style="{
-          transform: `translate(${offsetX}px, ${offsetY}px)`
-        }"
+          :style="textStyle"
       >
-        СПОРТСКИ ИГРИ ВЕЛЕС
+        СПОРТСКИ<br />
+        ИГРИ<br />
+        ВЕЛЕС
       </h1>
     </div>
   </section>
@@ -33,6 +33,34 @@ export default {
       this.offsetY = ((e.clientY - centerY) / centerY) * moveFactor;
     },
   },
+  computed: {
+    textStyle() {
+      const isMobile = window.innerWidth < 768;
+
+      if (isMobile) {
+        return {
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          textAlign: 'center',
+          width: '90%',
+          fontSize: '32px',
+          WebkitTextStroke: '1px #ffc800'
+        };
+      } else {
+        return {
+          bottom: '30px',
+          right: '40px',
+          textAlign: 'right',
+          transform: `translate(${this.offsetX}px, ${this.offsetY}px)`
+        };
+      }
+    }
+  }
+
+
+
+
 };
 </script>
 
@@ -46,18 +74,6 @@ export default {
   background-color: #0B2559;
   overflow: hidden;
   position: relative;
-}
-.hue-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /*background-color: #ffc800;*/
-  /*!*opacity: 0.70; !* или прилагоди колку да биде интензивно *!*!*/
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  z-index: 1000;
 }
 
 .video-container {
@@ -79,17 +95,44 @@ export default {
 
 .outline-text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 100px;  font-weight: bold;
+  font-size: 100px;
+  font-weight: bold;
   color: transparent;
-  -webkit-text-stroke: 2px #ffc800; /* outline */
-  text-align: center;
+  -webkit-text-stroke: 2px #ffc800;
   pointer-events: none;
-  transition: transform 0.1s ease-out;
   text-transform: uppercase;
   z-index: 3;
+  transition: transform 0.1s ease-out;
 }
+
+@media (max-width: 768px) {
+  .video-container {
+    position: relative;
+
+    width: 95vw;
+    height: 50vh;
+    margin-top: 140px;
+    border-radius: 12px;
+  }
+  .outline-text {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    -webkit-text-stroke: 1px #ffc800;
+    text-align: center;
+    width: 90%;
+    padding: 0 10px;
+  }
+
+
+  .hero {
+    height: auto;
+    padding-bottom: 2rem;
+  }
+}
+
 </style>
 
