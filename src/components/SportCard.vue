@@ -1,5 +1,5 @@
 <template>
-  <div class="sport-card" @click="$emit('click')">
+  <div class="sport-card" @click="$emit('click')" data-aos="zoom-in">
     <div class="icon">{{ icon }}</div>
     <h3 class="name">{{ name }}</h3>
   </div>
@@ -14,27 +14,28 @@ defineProps(['name', 'icon'])
   cursor: pointer;
   background-color: white;
   padding: 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   text-align: center;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   user-select: none;
 }
 
 .sport-card:hover {
-  background-color: #fef3c7; /* светло жолта боја */
-  box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .icon {
   font-size: 3rem;
   margin-bottom: 0.75rem;
+  color: #ffc800; /* жолта икона */
 }
 
 .name {
   font-weight: 700;
   font-size: 1.125rem;
   color: #0b2559;
-  user-select: none;
+  letter-spacing: 0.5px;
 }
 </style>
