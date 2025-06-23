@@ -141,5 +141,31 @@ h1 {
   user-select: none;
   margin-left: -400px;
 }
+@media (max-width: 600px) {
+  h1 {
+    font-size: 32px;
+  }
 
+  .fixed-text {
+    min-width: auto;
+    white-space: normal;
+  }
+
+  .highlighted-word {
+    font-size: 32px;
+  }
+
+  .rotating-headline {
+    padding: 60px 20px;
+  }
+
+  .watermark {
+    font-size: 60vw;
+    margin-left: -200px;
+  }
+
+  .reveal-text {
+    font-size: 16px;
+  }
+}
 </style>
