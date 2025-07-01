@@ -1,7 +1,0 @@
-Django==5.2.1
-djangorestframework
-channels
-channels-redis
-django-cors-headers
-daphne
-redis
