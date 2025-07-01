@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="21c2267d-5d63-439e-8e1b-db7ad8607331" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Igri-master.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/jsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/Pages/Home.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/images/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/images/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/images/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/images/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/images/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/images/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/images/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/images/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/images/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/images/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/images/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/images/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/images/music.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/assets/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/components/About.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/components/AdminMatches.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/components/Contact.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/components/Footer.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/components/Gallery.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/components/Hero.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/components/LoadingScreen.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/components/MatchCard.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/components/Navbar.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/components/Results.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/components/SportCard.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/components/SportMatches.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/components/Sports.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/src/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Igri-master/vite.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/videos/hero-video.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Home.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/music.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Contact.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Gallery.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Hero.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoadingScreen.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MatchCard.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Results.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SportCard.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SportMatches.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sports.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2z8iWyKiKYYXsvlhU961K4bsJzu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/Igri-master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/Igri-master/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="21c2267d-5d63-439e-8e1b-db7ad8607331" name="Changes" comment="" />
+      <created>1751119138393</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1751119138393</updated>
+      <workItem from="1751119140031" duration="2014000" />
+      <workItem from="1751375346476" duration="4559000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
