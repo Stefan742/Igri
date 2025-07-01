@@ -9,11 +9,12 @@
     <div class="sports-grid">
       <SportCard
           v-for="sport in sports"
-          :key="sport.name"
+          :key="sport.slug"
           :name="sport.name"
           :icon="sport.icon"
-          @click="goToSport(sport.name)"
+          @click="goToSport(sport.slug)"
       />
+
     </div>
   </section>
 
@@ -29,15 +30,17 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const sports = [
-  { name: 'Кошарка', icon: '🏀' },
-  { name: 'Одбојка', icon: '🏐' },
-  { name: 'Тенис', icon: '🎾' },
-  { name: 'Фудбал', icon: '⚽' }
+  { name: 'Кошарка', slug: 'kosarka', icon: '🏀' },
+  { name: 'Одбојка', slug: 'odbojka', icon: '🏐' },
+  { name: 'Тенис', slug: 'tenis', icon: '🎾' },
+  { name: 'Фудбал', slug: 'fudbal', icon: '⚽' }
 ]
 
-function goToSport(sportName) {
-  router.push({ name: 'SportMatches', params: { sport: sportName.toLowerCase() } })
+
+function goToSport(slug) {
+  router.push({ name: 'SportMatches', params: { sport: slug } })
 }
+
 </script>
 
 <style scoped>

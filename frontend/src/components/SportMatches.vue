@@ -19,14 +19,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import MatchCard from '@/components/MatchCard.vue'
 
 const route = useRoute()
 const sport = route.params.sport
-
 const matches = ref([])
+
+let socket = null
 
 onMounted(() => {
   const dummyData = {
@@ -42,7 +43,26 @@ onMounted(() => {
   }
 
   matches.value = dummyData[sport] || []
+
+  socket = new WebSocket(`ws://localhost:8000/ws/matches/${sport}/`)
+
+  socket.onmessage = (event) => {
+    const data = JSON.parse(event.data)
+
+    const index = matches.value.findIndex(m => m.id === data.match_id)
+    if (index !== -1) {
+      matches.value[index].score = data.score
+      matches.value[index].time = data.time
+    }
+  }
 })
+
+onUnmounted(() => {
+  if (socket) {
+    socket.close()
+  }
+})
+
 </script>
 
 <style scoped>
