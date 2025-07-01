@@ -1,0 +1,56 @@
+# Python cache и компајлирани фајлови
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Виртуелна околина (virtual environment)
+venv/
+.env/
+env/
+ENV/
+
+# Django миграции (ако сакаш, може да ги пушиш, но вообичаено не се пушаат)
+*/migrations/*.pyc
+*/migrations/*.py[cod]
+
+# Системски фајлови
+*.sqlite3
+*.log
+
+# IDE и editor фајлови
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Системски фајлови за MacOS и Windows
+.DS_Store
+Thumbs.db
+
+# Python egg фајлови
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Pytest cache
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Static files (ако ги генерираш и пушаш посебно, можеш да го игнорираш ова)
+staticfiles/
+
+# Environment files
+.env
+.env.*
+
