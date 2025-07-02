@@ -5,10 +5,21 @@ from .models import Match
 from .serializers import MatchSerializer
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
+from unidecode import unidecode
+from rest_framework import status
+
+
 
 class MatchViewSet(viewsets.ModelViewSet):
     queryset = Match.objects.all()
     serializer_class = MatchSerializer
+
+    @action(detail=False, methods=['get'], url_path='by-sport/(?P<sport>[^/.]+)')
+    def by_sport(self, request, sport=None):
+        normalized_sport = unidecode(sport).lower()
+        matches = self.queryset.filter(sport__iexact=normalized_sport)
+        serializer = self.get_serializer(matches, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     @action(detail=True, methods=['post'])
     def update_score(self, request, pk=None):
@@ -27,7 +38,7 @@ class MatchViewSet(viewsets.ModelViewSet):
             # Realtime emit
             channel_layer = get_channel_layer()
             async_to_sync(channel_layer.group_send)(
-                f"results_{match.sport}",
+                f"results_{unidecode(match.sport.lower())}",
                 {
                     "type": "send_score",
                     "match_id": match.id,

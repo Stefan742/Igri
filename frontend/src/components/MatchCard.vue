@@ -1,6 +1,6 @@
 <template>
   <div class="match-card" data-aos="fade-up">
-    <div class="teams">
+    <div class="match-info">
       <h3>{{ match.teams }}</h3>
       <p><span class="dot" /> {{ match.time }}</p>
     </div>
@@ -14,42 +14,42 @@ defineProps(['match'])
 
 <style scoped>
 .match-card {
-  background: white;
-  padding: 1rem 1.25rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  background: #0B2559;
+  border-left: 6px solid #ffc800;
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
+  flex-direction: column;
+  gap: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .match-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
-.teams h3 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #0b2559;
-  margin-bottom: 0.25rem;
+.match-info h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
 }
 
-.teams p {
+.match-info p {
   font-size: 0.875rem;
-  color: #666;
-  margin: 0;
+  color: red;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  margin: 0;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
-  background-color: #ffc800;
+  width: 10px;
+  height: 10px;
+  background-color: red;
   border-radius: 50%;
   animation: pulse 1.5s infinite;
   display: inline-block;
@@ -61,8 +61,8 @@ defineProps(['match'])
     opacity: 1;
   }
   50% {
-    transform: scale(1.5);
-    opacity: 0.5;
+    transform: scale(1.4);
+    opacity: 0.6;
   }
   100% {
     transform: scale(1);
@@ -71,8 +71,9 @@ defineProps(['match'])
 }
 
 .score {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.75rem;
+  font-weight: 800;
   color: #ffc800;
+  align-self: flex-end;
 }
 </style>

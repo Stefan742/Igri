@@ -1,9 +1,12 @@
 from channels.generic.websocket import AsyncJsonWebsocketConsumer
+from unidecode import unidecode
 
 class ScoreConsumer(AsyncJsonWebsocketConsumer):
     async def connect(self):
-        self.sport = self.scope['url_route']['kwargs']['sport']
+        raw_sport = self.scope['url_route']['kwargs']['sport']
+        self.sport = unidecode(raw_sport.lower())
         self.group_name = f"results_{self.sport}"
+
         await self.channel_layer.group_add(self.group_name, self.channel_name)
         await self.accept()
 

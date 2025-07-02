@@ -5,3 +5,5 @@ channels-redis
 django-cors-headers
 daphne
 redis
+Unidecode
+

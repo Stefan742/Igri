@@ -19,51 +19,57 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import MatchCard from '@/components/MatchCard.vue'
 
 const route = useRoute()
-const sport = route.params.sport
+const sport = ref(route.params.sport)
 const matches = ref([])
 
 let socket = null
 
-onMounted(() => {
-  const dummyData = {
-    kosarka: [
-      { id: 1, teams: 'Вардар vs Работнички', score: '65 - 60', time: '3rd Q' },
-      { id: 2, teams: 'АВ Охрид vs Пелистер', score: '47 - 51', time: '2nd Q' }
-    ],
-    fudbal: [
-      { id: 3, teams: 'Шкупи vs Вардар', score: '1 - 0', time: '45+2’' }
-    ],
-    tenis: [],
-    odbojka: []
+const loadMatches = async () => {
+  const normalized = sport.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+
+  try {
+    const response = await fetch(`http://localhost:8000/api/matches/by-sport/${normalized}/`)
+    if (!response.ok) throw new Error('Failed to fetch matches')
+    const data = await response.json()
+    matches.value = data  // очекувај data да е листа со натпревари
+  } catch (error) {
+    console.error('Error loading matches:', error)
+    matches.value = [] // или dummyData ако сакаш fallback
   }
 
-  matches.value = dummyData[sport] || []
+  if (socket) socket.close()
 
-  socket = new WebSocket(`ws://localhost:8000/ws/matches/${sport}/`)
-
+  socket = new WebSocket(`ws://localhost:8000/ws/results/${normalized}/`)
   socket.onmessage = (event) => {
     const data = JSON.parse(event.data)
-
     const index = matches.value.findIndex(m => m.id === data.match_id)
     if (index !== -1) {
       matches.value[index].score = data.score
       matches.value[index].time = data.time
     }
   }
+}
+
+
+onMounted(() => {
+  loadMatches()
+})
+
+watch(() => route.params.sport, (newVal) => {
+  sport.value = newVal
+  loadMatches()
 })
 
 onUnmounted(() => {
-  if (socket) {
-    socket.close()
-  }
+  if (socket) socket.close()
 })
-
 </script>
+
 
 <style scoped>
 .matches {
@@ -82,13 +88,14 @@ onUnmounted(() => {
 }
 
 .match-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex !important;
+  flex-direction: column !important;
   gap: 1.5rem;
-  max-width: 1000px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 0 1rem;
 }
+
 
 .no-matches {
   text-align: center;
