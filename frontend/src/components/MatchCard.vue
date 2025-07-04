@@ -1,8 +1,16 @@
 <template>
-  <div class="match-card" data-aos="fade-up">
+  <div class="match-card" :class="match.status" data-aos="fade-up">
     <div class="match-info">
       <h3>{{ match.teams }}</h3>
-      <p><span class="dot" /> {{ match.time }}</p>
+      <p v-if="match.status === 'scheduled'">
+        <span class="dot scheduled" /> Закажано: {{ new Date(match.scheduled_time).toLocaleString() }}
+      </p>
+      <p v-else-if="match.status === 'active'">
+        <span class="dot active" /> {{ match.time }}
+      </p>
+      <p v-else>
+        <span class="dot finished" /> Завршен натпревар
+      </p>
     </div>
     <div class="score">{{ match.score }}</div>
   </div>
@@ -39,20 +47,31 @@ defineProps(['match'])
 
 .match-info p {
   font-size: 0.875rem;
-  color: red;
   display: flex;
   align-items: center;
   gap: 8px;
   margin: 0;
+  color: white;
 }
 
 .dot {
   width: 10px;
   height: 10px;
-  background-color: red;
   border-radius: 50%;
-  animation: pulse 1.5s infinite;
   display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+.dot.scheduled {
+  background-color: #ffa500;
+}
+
+.dot.active {
+  background-color: #00cc00;
+}
+
+.dot.finished {
+  background-color: #888;
 }
 
 @keyframes pulse {

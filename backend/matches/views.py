@@ -1,13 +1,13 @@
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from django.utils.dateparse import parse_datetime
 from .models import Match
 from .serializers import MatchSerializer
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
 from unidecode import unidecode
 from rest_framework import status
-
 
 
 class MatchViewSet(viewsets.ModelViewSet):
@@ -27,11 +27,19 @@ class MatchViewSet(viewsets.ModelViewSet):
             match = self.get_object()
             score = request.data.get('score')
             time = request.data.get('time')
+            status = request.data.get('status')
+            scheduled_time = request.data.get('scheduled_time')
 
             if score is not None:
                 match.score = score
             if time is not None:
                 match.time = time
+            if status is not None:
+                match.status = status
+            if scheduled_time is not None:
+                dt = parse_datetime(scheduled_time)
+                if dt is not None:
+                    match.scheduled_time = dt
 
             match.save()
 
@@ -44,6 +52,8 @@ class MatchViewSet(viewsets.ModelViewSet):
                     "match_id": match.id,
                     "score": match.score,
                     "time": match.time,
+                    "status": match.status,
+                    "scheduled_time": match.scheduled_time.isoformat() if match.scheduled_time else None,
                 }
             )
 

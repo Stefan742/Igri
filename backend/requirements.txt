@@ -6,4 +6,5 @@ django-cors-headers
 daphne
 redis
 Unidecode
+python-dateutil
 

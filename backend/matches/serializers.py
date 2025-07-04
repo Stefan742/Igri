@@ -6,7 +6,7 @@ class MatchSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Match
-        fields = ['id', 'sport', 'teams', 'score', 'time']
+        fields = ['id', 'sport', 'teams', 'score', 'time', 'status', 'scheduled_time']
 
     def get_teams(self, obj):
         return f"{obj.home_team} vs {obj.away_team}"

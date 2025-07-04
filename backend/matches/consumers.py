@@ -18,4 +18,6 @@ class ScoreConsumer(AsyncJsonWebsocketConsumer):
             "match_id": event["match_id"],
             "score": event["score"],
             "time": event["time"],
+            "status": event.get("status"),
+            "scheduled_time": event.get("scheduled_time"),
         })

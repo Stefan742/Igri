@@ -13,12 +13,14 @@ let socket = null
 
 async function loadMatches() {
   try {
-    const res = await fetch(`http://localhost:8000/api/matches/?sport=${sport}`)
+    const res = await fetch(`http://localhost:8000/api/matches/by-sport/${sport}/`)
+    if (!res.ok) throw new Error('Грешка при вчитување на податоци')
     matches.value = await res.json()
   } catch (err) {
     console.error('Грешка при вчитување на податоци:', err)
   }
 }
+
 
 onMounted(() => {
   loadMatches()
@@ -31,8 +33,11 @@ onMounted(() => {
     if (index !== -1) {
       matches.value[index].score = data.score
       matches.value[index].time = data.time
+      if (data.status) matches.value[index].status = data.status
+      if (data.scheduled_time) matches.value[index].scheduled_time = data.scheduled_time
     }
   }
+
 
   socket.onclose = () => {
     console.log('WebSocket connection closed')
@@ -52,7 +57,12 @@ async function updateMatch(match) {
     const res = await fetch(`http://localhost:8000/api/matches/${match.id}/update_score/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ score: match.score, time: match.time }),
+      body: JSON.stringify({
+        score: match.score,
+        time: match.time,
+        status: match.status,
+        scheduled_time: match.scheduled_time,
+      }),
     })
     if (!res.ok) throw new Error('Грешка при зачувување')
     message.value = 'Успешно зачувано!'
@@ -149,6 +159,18 @@ h2 {
           v-model="match.time"
           type="text"
           placeholder="Време"
+      />
+
+      <select v-model="match.status">
+        <option value="scheduled">Scheduled</option>
+        <option value="active">Active</option>
+        <option value="finished">Finished</option>
+      </select>
+
+      <input
+          v-if="match.status === 'scheduled'"
+          v-model="match.scheduled_time"
+          type="datetime-local"
       />
 
       <button
