@@ -9,6 +9,8 @@
   background-color: #0B2559;
   color: white;
   text-align: center;
-  padding: 20px;
+  margin: 0;
+  padding: 1rem 0;
+
 }
 </style>

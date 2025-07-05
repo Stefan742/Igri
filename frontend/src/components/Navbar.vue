@@ -196,7 +196,7 @@ a {
     position: absolute;
     top: 100px;
     left: 0;
-    width: 100%;
+    width: 100vw;
     flex-direction: column;
     background-color: rgba(11, 37, 89, 0.95);
     padding: 1rem 0;
