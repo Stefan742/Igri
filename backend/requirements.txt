@@ -7,4 +7,5 @@ daphne
 redis
 Unidecode
 python-dateutil
+Pillow
 

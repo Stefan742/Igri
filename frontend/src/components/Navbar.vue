@@ -26,7 +26,7 @@
       <ul :class="['nav-links', { open: menuOpen }]">
         <li><a href="#about" @click="closeMenu">ABOUT US</a></li>
         <li><router-link to="/results" @click.native="closeMenu">SPORTS</router-link></li>
-        <li><a href="#gallery" @click="closeMenu">GALLERY</a></li>
+        <li><router-link to="/news" @click.native="closeMenu">NEWS</router-link></li>
         <li><a href="#contact" @click="closeMenu">CONTACT</a></li>
       </ul>
     </div>

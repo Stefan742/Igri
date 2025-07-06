@@ -1,32 +1,39 @@
 <template>
-  <section class="matches" data-aos="fade-in">
-    <h2 class="title">Натпревари: {{ sport }}</h2>
+  <div class="match-page-wrapper">
+    <Navbar />
 
-    <div v-if="matches.length" class="match-grid">
-      <MatchCard
-          v-for="match in matches"
-          :key="match.id"
-          :match="match"
-          data-aos="fade-up"
-      />
-    </div>
+    <section class="matches" data-aos="fade-in">
+      <h2 class="title">Натпревари: {{ sport }}</h2>
 
-    <div v-else class="no-matches" data-aos="fade-up">
-      <span>😕</span><br />
-      Нема активни натпревари во моментов.
-    </div>
-  </section>
+      <div v-if="matches.length" class="match-grid">
+        <MatchCard
+            v-for="match in matches"
+            :key="match.id"
+            :match="match"
+            data-aos="fade-up"
+        />
+      </div>
+
+      <div v-else class="no-matches" data-aos="fade-up">
+        <span>😕</span><br />
+        Нема активни натпревари во моментов.
+      </div>
+    </section>
+
+    <Footer />
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import Navbar from '@/components/Navbar.vue'
+import Footer from '@/components/Footer.vue'
 import MatchCard from '@/components/MatchCard.vue'
 
 const route = useRoute()
 const sport = ref(route.params.sport)
 const matches = ref([])
-
 let socket = null
 
 const loadMatches = async () => {
@@ -36,10 +43,10 @@ const loadMatches = async () => {
     const response = await fetch(`http://localhost:8000/api/matches/by-sport/${normalized}/`)
     if (!response.ok) throw new Error('Failed to fetch matches')
     const data = await response.json()
-    matches.value = data  // очекувај data да е листа со натпревари
+    matches.value = data
   } catch (error) {
     console.error('Error loading matches:', error)
-    matches.value = [] // или dummyData ако сакаш fallback
+    matches.value = []
   }
 
   if (socket) socket.close()
@@ -55,7 +62,6 @@ const loadMatches = async () => {
   }
 }
 
-
 onMounted(() => {
   loadMatches()
 })
@@ -70,11 +76,17 @@ onUnmounted(() => {
 })
 </script>
 
-
 <style scoped>
-.matches {
-  padding: 3rem 1.5rem;
+.match-page-wrapper {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  background: #fff;
+}
+
+.matches {
+  flex: 1;
+  padding: 140px 1.5rem 3rem;
   background: linear-gradient(to right, #eef2f3, #dce3e9);
 }
 
@@ -88,14 +100,13 @@ onUnmounted(() => {
 }
 
 .match-grid {
-  display: flex !important;
-  flex-direction: column !important;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
   max-width: 600px;
   margin: 0 auto;
   padding: 0 1rem;
 }
-
 
 .no-matches {
   text-align: center;

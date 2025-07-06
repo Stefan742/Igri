@@ -2,8 +2,8 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.utils.dateparse import parse_datetime
-from .models import Match
-from .serializers import MatchSerializer
+from .models import Match, News
+from .serializers import MatchSerializer, NewsSerializer
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
 from unidecode import unidecode
@@ -62,3 +62,7 @@ class MatchViewSet(viewsets.ModelViewSet):
         except Exception as e:
             print("Error in update_score:", e)
             return Response({"error": str(e)}, status=500)
+
+class NewsViewSet(viewsets.ModelViewSet):
+    queryset = News.objects.all().order_by('-created_at')
+    serializer_class = NewsSerializer

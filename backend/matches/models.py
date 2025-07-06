@@ -16,3 +16,13 @@ class Match(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='scheduled')
     scheduled_time = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+class News(models.Model):
+    title = models.CharField(max_length=255)
+    summary = models.TextField()
+    content = models.TextField()
+    image = models.ImageField(upload_to='images/')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
